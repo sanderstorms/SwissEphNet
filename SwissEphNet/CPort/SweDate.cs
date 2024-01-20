@@ -183,7 +183,8 @@ namespace SwissEphNet.CPort
                         date_conversion() includes test for legal date values
                     and notifies errors like 32 January.
          ****************************************************************/
-        public double swe_julday(int year, int month, int day, double hour, int gregflag) {
+        public double swe_julday(int year, int month, int day, double hour, int gregflag = SwissEph.SE_JUL_CAL) 
+        {
             double jd;
             double u, u0, u1, u2;
             u = year;

@@ -3645,11 +3645,11 @@ namespace SwissEphNet.CPort
             /* if tjd > 1600 then gregorian calendar */
             if (tjd >= 2305447.5) {
                 gregflag = SwissEph.SE_GREG_CAL;
-                SE.swe_revjul(tjd, gregflag, ref jyear, ref jmon, ref jday, ref jut);
+                SE.swe_revjul(tjd, ref jyear, ref jmon, ref jday, ref jut, gregflag);
                 /* else julian calendar */
             } else {
                 gregflag = SwissEph.SE_JUL_CAL;
-                SE.swe_revjul(tjd, gregflag, ref jyear, ref jmon, ref jday, ref jut);
+                SE.swe_revjul(tjd, ref jyear, ref jmon, ref jday, ref jut, gregflag);
             }
             /* start century of file containing tjd */
             if (jyear < 0)

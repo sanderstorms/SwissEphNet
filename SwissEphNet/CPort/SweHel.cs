@@ -580,7 +580,7 @@ namespace SwissEphNet.CPort
                     }
                 }
             }
-            SE.swe_revjul(JDNDaysUT, calflag, ref iyar, ref imon, ref iday, ref dut); /* this seems to be much faster than calling swe_revjul() ! Note: only because SunRA is called 1000s of times */
+            SE.swe_revjul(JDNDaysUT, ref iyar, ref imon, ref iday, ref dut, calflag); /* this seems to be much faster than calling swe_revjul() ! Note: only because SunRA is called 1000s of times */
             SunRA_tjdlast = JDNDaysUT;
             SunRA_ralast = SE.swe_degnorm((imon + (iday - 1) / 30.4 - 3.69) * 30);
             /*ralast = (DatefromJDut(JDNDaysUT, 2) + (DatefromJDut(JDNDaysUT, 3) - 1) / 30.4 - 3.69) * 30;*/
@@ -1069,7 +1069,7 @@ namespace SwissEphNet.CPort
             /*YearB = DatefromJDut(JDNDayUT, 1);
               MonthB = DatefromJDut(JDNDayUT, 2);
               DayB = DatefromJDut(JDNDayUT, 3);*/
-            SE.swe_revjul(JDNDayUT, SwissEph.SE_GREG_CAL, ref iyar, ref imon, ref iday, ref dut);
+            SE.swe_revjul(JDNDayUT, ref iyar, ref imon, ref iday, ref dut, SwissEph.SE_GREG_CAL);
             YearB = iyar; MonthB = imon; DayB = iday;
             Bna = B0 * (1 + 0.3 * Math.Cos(6.283 * (YearB + ((DayB - 1) / 30.4 + MonthB - 1) / 12 - 1990.33) / 11.1));
             kX = Deltam(AltO, AltS, sunra, Lat, HeightEye, datm, helflag, ref serr);

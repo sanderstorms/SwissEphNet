@@ -773,12 +773,12 @@ namespace SwissEphNet
             return SweDate.swe_date_conversion(y, m, d, utime, c, ref tjd);
         }
 
-        public double swe_julday(int year, int mon, int mday, double hour, int gregflag)
+        public double swe_julday(int year, int mon, int mday, double hour, int gregflag = SwissEph.SE_JUL_CAL)
         {
             return SweDate.swe_julday(year, mon, mday, hour, gregflag);
         }
 
-        public void swe_revjul(double jd, int gregflag, ref int year, ref int mon, ref int mday, ref double hour)
+        public void swe_revjul(double jd, ref int year, ref int mon, ref int mday, ref double hour, int gregflag = SwissEph.SE_JUL_CAL)
         {
             SweDate.swe_revjul(jd, gregflag, ref year, ref mon, ref mday, ref hour);
         }
